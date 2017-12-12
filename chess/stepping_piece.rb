@@ -1,6 +1,5 @@
-require_relative "display.rb"
-
 module SteppingPiece
+  
   KNIGHT = [[-2,-1], [-2,1], [-1,2], [-1,-2], [1,-2], [1,2], [2,1], [2,-1]]
   KING = [[1,0], [0,1], [-1,0], [0,-1], [1,1], [1,-1], [-1,1], [-1,-1]]
 
@@ -42,6 +41,6 @@ module SteppingPiece
 
 end
 
-b = Board.new
-d = Display.new(b)
-p SteppingPiece.moves([1,3], [:knight], b)
+# b = Board.new
+# d = Display.new(b)
+# p SteppingPiece.moves([1,3], [:knight], b)

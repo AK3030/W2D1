@@ -1,5 +1,3 @@
-require_relative 'display.rb'
-
 module SlidingPiece
 
   DIAGS = [[1,1], [1,-1], [-1,-1], [-1,1]]
@@ -8,11 +6,11 @@ module SlidingPiece
   def SlidingPiece.moves(curr_pos, directions, board)
     possible_moves = []
 
-    if directions.include?(:diag)
+    if directions.include?(:diags)
       possible_moves += get_moves(curr_pos, board, DIAGS)
     end
 
-    if directions.include?(:horivert)
+    if directions.include?(:lines)
       possible_moves += get_moves(curr_pos, board, LINES)
     end
 
@@ -47,6 +45,6 @@ module SlidingPiece
 end
 
 
-b = Board.new
-d = Display.new(b)
-p SlidingPiece.moves([1,3], [:diag], b)
+# b = Board.new
+# d = Display.new(b)
+# p SlidingPiece.moves([1,3], [:diag], b)

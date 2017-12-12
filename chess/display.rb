@@ -30,3 +30,7 @@ class Display
   end
 
 end
+
+b = Board.new
+d = Display.new(b)
+d.loop
