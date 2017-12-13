@@ -34,9 +34,17 @@ module SlidingPiece
     while true
       temp[0] += dir.first
       temp[1] += dir.last
-      if board[temp].class == (Piece) || board.in_bounds(temp) == false
+
+      current_color = board[curr_pos].color
+
+      break if board.in_bounds(temp) == false
+      break if board[temp].color == current_color
+
+      if board[temp].class != NullPiece && board[temp].color != current_color
+        possible_moves << temp.dup
         break
       end
+
       possible_moves << temp.dup
     end
 

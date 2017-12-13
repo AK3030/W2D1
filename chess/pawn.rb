@@ -46,10 +46,14 @@ class Pawn < Piece
     pos
   end
 
+  def symbol
+    :P
+  end
+
   def moves
     possible_moves = []
 
     possible_moves += take_piece
-    possible_moves += vert_moves
+    possible_moves + vert_moves
   end
 end

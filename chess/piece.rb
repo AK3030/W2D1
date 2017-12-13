@@ -1,5 +1,5 @@
 class Piece
-  attr_accessor :moves_taken
+  attr_accessor :moves_taken, :pos
 
   def initialize(pos, board)
     @pos = pos
@@ -18,8 +18,24 @@ class Piece
   def moves
   end
 
+  def valid_moves
+    valid_moves = []
+    possible_moves = self.moves
+
+    p self.class
+
+    possible_moves.each do |new_pos|
+      p "In the each"
+      board_copy = @board.dup
+      board_copy.move_piece(@pos, new_pos)
+      valid_moves << new_pos unless board_copy.in_check?(@color)
+    end
+
+    valid_moves
+  end
+
   def symbol
-    "P"
+    "X"
   end
 
   def move_into_check(to_pos)

@@ -1,5 +1,5 @@
 module SteppingPiece
-  
+
   KNIGHT = [[-2,-1], [-2,1], [-1,2], [-1,-2], [1,-2], [1,2], [2,1], [2,-1]]
   KING = [[1,0], [0,1], [-1,0], [0,-1], [1,1], [1,-1], [-1,1], [-1,-1]]
 
@@ -32,8 +32,13 @@ module SteppingPiece
 
     temp[0] += dir.first
     temp[1] += dir.last
-    if board[temp].class == (Piece) || board.in_bounds(temp) == false
-      return []
+    current_color = board[curr_pos].color.to_s
+
+    return [] if board.in_bounds(temp) == false
+    return [] if board[temp].color == current_color
+
+    if board[temp].class != NullPiece && board[temp].color != current_color
+      return [temp.dup]
     end
 
     [temp]

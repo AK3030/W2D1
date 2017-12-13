@@ -30,7 +30,16 @@ class Display
   end
 
 end
-
+#
 b = Board.new
+k = King.new([3,3], b)
+q = Queen.new([3,4], b)
+b[[3,3]] = k
+b[[3,4]] = q
+k.color = :B
+q.color = :W
 d = Display.new(b)
-d.loop
+# d.loop
+b.move_piece([3,3],[3,2])
+# p b.in_check?(:B)
+# p b[[6,0]]
